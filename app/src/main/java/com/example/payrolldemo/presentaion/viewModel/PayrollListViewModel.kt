@@ -2,16 +2,16 @@ package com.example.payrolldemo.presentaion.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.payrolldemo.data.repository.PayrollRepository
+import com.example.payrolldemo.domain.usecase.GetPayrollsUseCase
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 
 class PayrollListViewModel(
-    repository: PayrollRepository
+    getPayrollsUseCase: GetPayrollsUseCase
 ) : ViewModel() {
 
     val payrolls =
-        repository.getPayrolls()
+        getPayrollsUseCase()
             .stateIn(
                 viewModelScope,
                 SharingStarted.WhileSubscribed(5000),

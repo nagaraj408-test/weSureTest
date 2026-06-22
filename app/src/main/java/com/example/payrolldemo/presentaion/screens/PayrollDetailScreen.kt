@@ -24,20 +24,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.payrolldemo.data.local.entity.PayrollWithEmployees
-import com.example.payrolldemo.data.model.toDomain
+import com.example.payrolldemo.domain.model.Payroll
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PayrollDetailScreen(
-    payroll: PayrollWithEmployees, onBack: () -> Unit
+    payroll: Payroll, onBack: () -> Unit
 ) {
-    val domainPayroll = payroll.toDomain()
-
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -74,7 +70,7 @@ fun PayrollDetailScreen(
                 )
             }
 
-            items(domainPayroll.employees) { employee ->
+            items(payroll.employees) { employee ->
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -153,16 +149,16 @@ fun PayrollDetailScreen(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text("Total Gross:")
-                            Text("$${domainPayroll.totalGross}")
+                            Text("$${payroll.totalGross}")
                         }
 
-                        if (domainPayroll.totalTaxes > 0) {
+                        if (payroll.totalTaxes > 0) {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Text("Total Taxes:")
-                                Text("-$${domainPayroll.totalTaxes}")
+                                Text("-$${payroll.totalTaxes}")
                             }
                         }
 
@@ -180,7 +176,7 @@ fun PayrollDetailScreen(
                                 fontWeight = FontWeight.Bold
                             )
                             Text(
-                                "$${domainPayroll.totalNet}",
+                                "$${payroll.totalNet}",
                                 style = MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.primary

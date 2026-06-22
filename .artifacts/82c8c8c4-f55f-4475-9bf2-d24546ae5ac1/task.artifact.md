@@ -1,5 +1,10 @@
-- [x] Update `PayrollListScreen` with TopAppBar and refined styling
-- [x] Update `CreatePayrollScreen` with Scaffold, TopAppBar, and back navigation
-- [x] Update `PayrollDetailScreen` with Scaffold, TopAppBar, and back navigation
-- [x] Update `AppNavigation` to pass navigation callbacks
-- [x] Verify build and UI
+- [x] Create domain package and move models
+- [x] Implement `GetPayrollsUseCase`
+- [x] Implement `GetPayrollDetailUseCase`
+- [x] Implement `CreatePayrollUseCase`
+- [x] Refactor `PayrollListViewModel`
+- [x] Refactor `PayrollDetailViewModel`
+- [x] Refactor `CreatePayrollViewModel`
+- [x] Update `AppNavigation`
+- [x] Clean up `data.model` and unused imports
+- [x] Verify build and functionality

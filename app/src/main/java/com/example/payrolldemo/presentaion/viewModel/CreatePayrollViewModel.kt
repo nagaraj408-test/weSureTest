@@ -5,13 +5,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.payrolldemo.data.model.Employee
-import com.example.payrolldemo.data.repository.PayrollRepository
+import com.example.payrolldemo.domain.model.Employee
+import com.example.payrolldemo.domain.usecase.CreatePayrollUseCase
 import com.example.payrolldemo.presentaion.EmployeeForm
 import kotlinx.coroutines.launch
 
 class CreatePayrollViewModel(
-    private val repository: PayrollRepository
+    private val createPayrollUseCase: CreatePayrollUseCase
 ) : ViewModel() {
     var employees by mutableStateOf(
         emptyList<EmployeeForm>()
@@ -52,7 +52,7 @@ class CreatePayrollViewModel(
             }
 
             if (allEmployees.isNotEmpty()) {
-                repository.createPayroll(
+                createPayrollUseCase(
                     allEmployees.map {
                         Employee(
                             name = it.name,

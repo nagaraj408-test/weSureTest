@@ -32,15 +32,14 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.payrolldemo.data.local.entity.PayrollWithEmployees
-import com.example.payrolldemo.data.model.toDomain
+import com.example.payrolldemo.domain.model.Payroll
 import java.text.SimpleDateFormat
 import java.util.Date
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PayrollListScreen(
-    payrolls: List<PayrollWithEmployees>,
+    payrolls: List<Payroll>,
     onCreatePayroll: () -> Unit,
     onPayrollClick: (Long) -> Unit
 ) {
@@ -96,8 +95,7 @@ fun PayrollListScreen(
                     .fillMaxSize()
                     .padding(padding)
             ) {
-                items(payrolls) { payrollWithEmployees ->
-                    val payroll = payrollWithEmployees.toDomain()
+                items(payrolls) { payroll ->
 
                     Card(
                         modifier = Modifier

@@ -3,8 +3,8 @@ package com.example.payrolldemo.data.repository
 import com.example.payrolldemo.data.local.dao.PayrollDao
 import com.example.payrolldemo.data.local.entity.EmployeeEntity
 import com.example.payrolldemo.data.local.entity.PayrollEntity
-import com.example.payrolldemo.data.model.Employee
 import com.example.payrolldemo.data.remote.PayrollApi
+import com.example.payrolldemo.domain.model.Employee
 
 class PayrollRepository(
     private val dao: PayrollDao,

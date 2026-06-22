@@ -9,7 +9,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.compose.ui.platform.LocalContext
+import com.example.payrolldemo.data.AppDatabase
+import com.example.payrolldemo.data.remote.FakePayrollApi
 import com.example.payrolldemo.data.repository.PayrollRepository
+import com.example.payrolldemo.domain.usecase.CreatePayrollUseCase
+import com.example.payrolldemo.domain.usecase.GetPayrollDetailUseCase
+import com.example.payrolldemo.domain.usecase.GetPayrollsUseCase
 import com.example.payrolldemo.presentaion.screens.CreatePayrollScreen
 import com.example.payrolldemo.presentaion.screens.PayrollDetailScreen
 import com.example.payrolldemo.presentaion.screens.PayrollListScreen
@@ -18,17 +24,29 @@ import com.example.payrolldemo.presentaion.viewModel.PayrollDetailViewModel
 import com.example.payrolldemo.presentaion.viewModel.PayrollListViewModel
 
 @Composable
-fun AppNavigation(
-    repository: PayrollRepository
-) {
+fun AppNavigation() {
+
+    val context = LocalContext.current
+    val repository = remember {
+        val database = AppDatabase.create(context)
+        PayrollRepository(
+            dao = database.payrollDao(),
+            api = FakePayrollApi()
+        )
+    }
+
     val navController = rememberNavController()
+    
+    val getPayrollsUseCase = remember { GetPayrollsUseCase(repository) }
+    val getPayrollDetailUseCase = remember { GetPayrollDetailUseCase(repository) }
+    val createPayrollUseCase = remember { CreatePayrollUseCase(repository) }
 
     NavHost(
         navController = navController, startDestination = "payroll_list"
     ) {
         composable("payroll_list") {
             val viewModel = remember {
-                PayrollListViewModel(repository)
+                PayrollListViewModel(getPayrollsUseCase)
             }
             val payrolls by viewModel.payrolls.collectAsState()
 
@@ -41,7 +59,7 @@ fun AppNavigation(
 
         composable("create_payroll") {
             val viewModel = remember {
-                CreatePayrollViewModel(repository)
+                CreatePayrollViewModel(createPayrollUseCase)
             }
 
             CreatePayrollScreen(
@@ -72,7 +90,7 @@ fun AppNavigation(
 
             val viewModel = remember {
                 PayrollDetailViewModel(
-                    repository, payrollId
+                    getPayrollDetailUseCase, payrollId
                 )
             }
 
