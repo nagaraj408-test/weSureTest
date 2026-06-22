@@ -1,6 +1,6 @@
 package com.example.payrolldemo
 
-import com.example.payrolldemo.data.model.Employee
+import com.example.payrolldemo.domain.model.Employee
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
