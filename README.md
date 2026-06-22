@@ -3,9 +3,11 @@ An Android application designed to manage employee payrolls, calculate taxes bas
 
 ## How to Run the Project
 
+## How to Run the Project
+
 1. **Clone the Repository**:
-   ```bash git clone <https://github.com/nagaraj408-test/weSureTest.git> or if giving any error while cloning download the project and open from the android studio directly from the path
-      Folder https://github.com/nagaraj408-test/weSureTest.git
+   ```bash 
+   git clone https://github.com/nagaraj408-test/weSureTest.git
  2.Open in Android Studio:
   ◦Open Android Studio (Ladybug 2024.2.1 or newer recommended).
   ◦Select Open and navigate to the PayrollDemo folder.
@@ -26,5 +28,5 @@ An Android application designed to manage employee payrolls, calculate taxes bas
 
 •Presentation Layer (Jetpack Compose):
 ◦Material 3: Used for a modern, responsive UI.
-◦MVI/MVVM Pattern: ViewModels manage the UI state and communicate with the Domain Layer via Use Cases.
+◦MVVM Pattern: ViewModels manage the UI state and communicate with the Domain Layer via Use Cases.
 ◦Navigation Compose: Handles the flow between the List, Create, and Detail screens.
