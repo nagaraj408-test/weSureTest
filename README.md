@@ -30,3 +30,9 @@ An Android application designed to manage employee payrolls, calculate taxes bas
 ◦Material 3: Used for a modern, responsive UI.
 ◦MVVM Pattern: ViewModels manage the UI state and communicate with the Domain Layer via Use Cases.
 ◦Navigation Compose: Handles the flow between the List, Create, and Detail screens.
+
+## Anything you would improve or do differently given more time
+
+Yes, if I had more time, I would focus on improving the UI responsiveness and overall user experience. I would also add comprehensive unit tests to increase reliability and maintainability. Additionally, I would integrate Hilt for dependency injection to avoid manually creating objects and to make the architecture more scalable and testable.
+
+
