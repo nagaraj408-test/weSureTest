@@ -3,8 +3,6 @@ An Android application designed to manage employee payrolls, calculate taxes bas
 
 ## How to Run the Project
 
-## How to Run the Project
-
 1. **Clone the Repository**:
    ```bash 
    git clone https://github.com/nagaraj408-test/weSureTest.git
