@@ -1,0 +1,5 @@
+- [x] Update `PayrollListScreen` with TopAppBar and refined styling
+- [x] Update `CreatePayrollScreen` with Scaffold, TopAppBar, and back navigation
+- [x] Update `PayrollDetailScreen` with Scaffold, TopAppBar, and back navigation
+- [x] Update `AppNavigation` to pass navigation callbacks
+- [x] Verify build and UI
