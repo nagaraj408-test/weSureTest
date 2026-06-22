@@ -5,7 +5,7 @@ An Android application designed to manage employee payrolls, calculate taxes bas
 
 1. **Clone the Repository**:
    ```bash git clone <https://github.com/nagaraj408-test/weSureTest.git> or if giving any error while cloning download the project and open from the android studio directly from the path
-      Folder 
+      Folder https://github.com/nagaraj408-test/weSureTest.git
  2.Open in Android Studio:
   ◦Open Android Studio (Ladybug 2024.2.1 or newer recommended).
   ◦Select Open and navigate to the PayrollDemo folder.
