@@ -27,6 +27,9 @@ https://github.com/nagaraj408-test/weSureTest.git
 Wait for Gradle sync to complete
 Ensure internet connection is active for dependencies download
 
+## Hint : if project fails due to AGP version check your android version and upadte your AGP version accordinly
+
+
 4. Run the App
 Connect Android device or start emulator (API 24+)
 Click the ▶ Run button in the toolbar
